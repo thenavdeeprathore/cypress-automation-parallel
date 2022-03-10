@@ -1,3 +1,4 @@
+@Library('pipeline') _
 pipeline {
 
   options {
