@@ -1,17 +1,17 @@
-@Library('pipeline') _
 pipeline {
 
+  agent any
+
+//   agent {
+//     docker {
+//       image 'cypress/browsers:node16.5.0-chrome94-ff93'
+//     }
+//   }
+  
   options {
-    timeout(time: q, unit: 'HOURS')
-    ansiColor('xterm')
+      ansiColor('xterm')
   }
-
-  agent {
-    docker {
-      image 'cypress/browsers:node16.5.0-chrome94-ff93'
-    }
-  }
-
+  
   stages {
     stage('checkout') {
       steps {
@@ -20,7 +20,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'npm ci'
+        sh 'npm i'
         sh 'npm run verify'
       }
     }
@@ -28,6 +28,13 @@ pipeline {
       steps {
         sh "npm run test:record"
       }
+    }
+  }
+
+  post {
+    // shutdown the server running in the background
+    always {
+      echo 'Tests are finished!'
     }
   }
 
