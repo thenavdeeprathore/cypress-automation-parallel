@@ -1,6 +1,10 @@
-@Library('pipeline') _
-
 pipeline {
+
+  options {
+    timeout(time: q, unit: 'HOURS')
+    ansiColor('xterm')
+  }
+
   agent {
     docker {
       image 'cypress/browsers:node16.5.0-chrome94-ff93'
@@ -25,4 +29,5 @@ pipeline {
       }
     }
   }
+
 }
