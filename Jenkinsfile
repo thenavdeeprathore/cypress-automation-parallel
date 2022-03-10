@@ -1,7 +1,9 @@
+@Library('pipeline') _
+
 pipeline {
   agent {
     docker {
-      image 'cypress/base:10'
+      image 'cypress/browsers:node16.5.0-chrome94-ff93'
     }
   }
 
@@ -14,6 +16,7 @@ pipeline {
     stage('build') {
       steps {
         sh 'npm ci'
+        sh 'npm run verify'
       }
     }
     stage('test') {
