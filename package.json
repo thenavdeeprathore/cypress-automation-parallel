@@ -1,0 +1,23 @@
+{
+  "name": "cypress-automation-parallel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "verify": "cypress verify",
+    "open": "cypress open",
+    "test": "cypress test",
+    "test:record": "cypress run --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0",
+    "test:record:parallel": "cypress run --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0 --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-personal:thenavdeeprathore/cypress-automation-parallel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.5.1"
+  }
+}
