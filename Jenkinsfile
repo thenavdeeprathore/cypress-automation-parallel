@@ -13,19 +13,27 @@ pipeline {
   }
   
   stages {
-    stage('checkout') {
+    // stage('checkout') {
+    //   steps {
+    //     checkout scm
+    //   }
+    // }
+    // stage('build') {
+    //   steps {
+    //     sh 'npm i'
+    //     sh 'npm run verify'
+    //   }
+    // }
+    stage('build and test') {
+      agent {
+        docker {
+          image 'cypress/browsers:node16.5.0-chrome94-ff93'
+        }
+      }
       steps {
         checkout scm
-      }
-    }
-    stage('build') {
-      steps {
         sh 'npm i'
         sh 'npm run verify'
-      }
-    }
-    stage('test') {
-      steps {
         sh "npm run test:record"
       }
     }
