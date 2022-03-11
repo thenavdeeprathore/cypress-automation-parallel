@@ -6,9 +6,10 @@
   "scripts": {
     "verify": "cypress verify",
     "open": "cypress open",
-    "test": "cypress test",
-    "test:record": "cypress run --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0",
-    "test:record:parallel": "cypress run --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0 --parallel"
+    "test": "cypress run --browser chrome",
+    "test:parallel": "node_modules/.bin/cypress-parallel -s test -t 4 -d 'cypress/integration/**/*.js'",
+    "test:record": "cypress run --browser chrome --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0",
+    "test:record:parallel": "node_modules/.bin/cypress-parallel -s test:record -t 4 -d 'cypress/integration/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^9.5.1"
+    "cypress": "^9.5.1",
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-parallel": "^0.9.0"
   }
 }
