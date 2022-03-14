@@ -6,10 +6,10 @@
   "scripts": {
     "verify": "cypress verify",
     "open": "cypress open",
-    "test": "cypress run --browser chrome --headed",
+    "test": "cypress run --browser chrome --config",
     "test:parallel": "node_modules/.bin/cypress-parallel -s test -t 4 -d 'cypress/integration/'",
-    "test:record": "cypress run --browser chrome --headed --record --key 688cb929-c400-4d7d-b9e1-6d311ddb41f0",
-    "test:record:parallel": "node_modules/.bin/cypress-parallel -s test:record -t 4 -d 'cypress/integration/'"
+    "test:record": "cypress run --browser chrome --record --key 29b24ebe-c09d-431b-8612-ba046a67f727",
+    "test:record:parallel": "node_modules/.bin/cypress-parallel -s test:record -t 8 -d 'cypress/integration/'"
   },
   "repository": {
     "type": "git",
