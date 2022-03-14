@@ -1,7 +1,5 @@
 pipeline {
 
-  agent any
-
   agent {
     docker {
       image 'cypress/browsers:node16.5.0-chrome94-ff93'
