@@ -22,8 +22,8 @@ pipeline {
         sh 'npm run verify'
       }
     }
-
-    parallel {
+    stage('cypress parallel tests') {
+      parallel {
         // start several test jobs in parallel, and they all
         // will use Cypress Dashboard to load balance any found spec files
         stage('tester A') {
@@ -40,7 +40,9 @@ pipeline {
             sh "npm run test:record"
           }
         }
+      }
     }
+    
     // stage('build and test') {
     //   // agent {
     //   //   docker {
